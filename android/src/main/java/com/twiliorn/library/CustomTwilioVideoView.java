@@ -320,9 +320,9 @@ public class CustomTwilioVideoView extends View implements LifecycleEventListene
 
         // If no camera is available let the caller know
         if (cameraCapturer == null) {
-            WritableMap event = new WritableNativeMap();
-            event.putString("error", "No camera is supported on this device");
-            pushEvent(CustomTwilioVideoView.this, ON_CONNECT_FAILURE, event);
+            //WritableMap event = new WritableNativeMap();
+            //event.putString("error", "No camera is supported on this device");
+           // pushEvent(CustomTwilioVideoView.this, ON_CONNECT_FAILURE, event);
             return false;
         }
 
@@ -468,9 +468,11 @@ public class CustomTwilioVideoView extends View implements LifecycleEventListene
         if (cameraCapturer == null && enableVideo) {
             boolean createVideoStatus = createLocalVideo(enableVideo, cameraType);
             if (!createVideoStatus) {
+                isVideoEnabled = false;
+
                 Log.d("RNTwilioVideo", "Failed to create local video");
                 // No need to connect to room if video creation failed
-                return;
+              //  return;
             }
         } else {
             isVideoEnabled = false;
@@ -714,6 +716,8 @@ public class CustomTwilioVideoView extends View implements LifecycleEventListene
             boolean createVideoStatus = createLocalVideo(true, fallbackCameraType);
             if (!createVideoStatus) {
                 Log.d("RNTwilioVideo", "Failed to create local video");
+                isVideoEnabled = false;
+
                 return;
             }
         }
