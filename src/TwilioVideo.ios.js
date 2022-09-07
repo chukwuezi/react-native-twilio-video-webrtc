@@ -241,8 +241,8 @@ export default class TwilioVideo extends Component {
     roomName,
     accessToken,
     cameraType = 'front',
-    enableAudio = true,
-    enableVideo = true,
+    enableAudio,
+    enableVideo,
     encodingParameters = null,
     enableNetworkQualityReporting = false,
     dominantSpeakerEnabled = false

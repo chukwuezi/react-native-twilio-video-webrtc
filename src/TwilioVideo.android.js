@@ -7,7 +7,7 @@
  *   Jonathan Chang <slycoder@gmail.com>
  */
 
-import {
+ import {
   Platform,
   UIManager,
   View,
@@ -173,8 +173,8 @@ class CustomTwilioVideoView extends Component {
     roomName,
     accessToken,
     cameraType = 'front',
-    enableAudio = true,
-    enableVideo = true,
+    enableAudio,
+    enableVideo,
     enableRemoteAudio = true,
     enableNetworkQualityReporting = false,
     dominantSpeakerEnabled = false,
